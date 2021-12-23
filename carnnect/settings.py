@@ -85,16 +85,18 @@ DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'carnnect',
-        'USER': 'postgres',
-    'PASSWORD':'6775',
+        'USER': 'moringa',
+    'PASSWORD':'12345',
     }
+
 }
 
 cloudinary.config( 
-  cloud_name = "dgkojinst", 
-  api_key = "938237336993178", 
-  api_secret = "PpuLrBceEgRwpOX1yU1Q2nOJIlE" 
+  cloud_name = 'the-collector', 
+  api_key =  '385692492331583', 
+  api_secret = 'wpPzGYYSWBJ_4NCwwSEC0YUMSO8'
 )
+
 
 
 
