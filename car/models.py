@@ -11,6 +11,7 @@ CATEGORY_CHOICES = [
 ] 
 
 class Profile(models.Model):
+    user = models.ForeignKey(User,on_delete = models.CASCADE, null=True)    
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     profile_pic = CloudinaryField('image')
