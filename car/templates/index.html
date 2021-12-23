@@ -1,1 +1,26 @@
-<p>Carnnect</p>
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="prof-body">
+                <form action="{% url 'index'%}" method="post" enctype="multipart/form-data">
+            
+                    {% csrf_token%}
+                    {% bootstrap_form form %}
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-primary" value="Create Profile">
+                    </div>
+                    <input type="hidden" name="next" value="{{next}}">
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
