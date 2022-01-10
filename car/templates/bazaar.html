@@ -43,16 +43,17 @@
           </a>
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{car.make}} {{car.model}}</h5>
+          <h5 class="card-title">{{car.make}} <span>{{car.model}}</span> </h5>
           <p class="card-text">{{car.description}}</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Year {{car.year}}</li>
-          <li class="list-group-item">Engine Size {{car.engine_size}}</li>
-          <li class="list-group-item">Price: KSH {{car.price}}</li>
-          <li class="list-group-item">Owner: {{car.user}}</li>
-          <li class="list-group-item">Email: {{car.user.email}}</li>
-          <li class="list-group-item">Mobile Number: {{car.user.mobile_number}}</li>
+          <li class="list-group-item"><span style="font-weight: 600;">Year: </span> {{car.year}}</li>
+          <li class="list-group-item"><span style="font-weight: 600;">Engine Size: </span>{{car.engine_size}}</li>
+          <li class="list-group-item"><span style="font-weight: 600;">Price: KSH </span>{{car.price}}</li>
+          <li class="list-group-item"><span style="font-weight: 600;">Owner: </span>{{car.user}}</li>
+          <li class="list-group-item"><span style="font-weight: 600;">Email: </span>{{car.user.email}}</li>
+          <li class="list-group-item"><span style="font-weight: 600;">Mobile Number: </span>{{car.user.mobile_number}}
+          </li>
         </ul>
         <!-- <div class="card-body">
                     <a href="#" class="card-link">Card link</a>
