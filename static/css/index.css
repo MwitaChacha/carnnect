@@ -3,32 +3,6 @@ html {
 
 }
 
-#bg {
-
-
-
-
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-    -webkit-animation: myfirst 5s;
-    /* Chrome, Safari, Opera */
-    animation: myfirst 5s;
-}
-
-/* Chrome, Safari, Opera */
-@keyframes myfirst {
-    from {
-        opacity: 0.0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
 .prof-body {
     margin: 10% 0 0 0;
     width: 90%;
@@ -71,7 +45,7 @@ html {
 p,
 form,
 ::placeholder,
-.fas,
+
 .advice-card {
     font-family: 'Source Sans Pro';
     font-size: smaller;
@@ -84,9 +58,10 @@ form,
     font-size: smaller;
     font-weight: 600;
 }
-a {
+a,.fas {
     text-decoration: none;
     color: #FC9918;
+    font-size: smaller;
 }
 
 h1,
@@ -95,9 +70,10 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Raleway';
+    font-family: 'Montserrat';
     letter-spacing: 3px;
-    color: black;
+    color: #064663;
+    font-weight: bold;
 }
 
 .login-btn {
@@ -110,12 +86,16 @@ h6 {
     font-family: 'Source Sans Pro';
     font-size: smaller;
     font-weight: 600;
+    padding: 2%;
+    border-radius: 10%;
 }
 
 button {
     font-family: 'Source Sans Pro';
     font-size: smaller;
     font-weight: 600;
+    padding: 2%;
+    border-radius: 10%;
 }
 
 .new-btn {
@@ -123,6 +103,8 @@ button {
     background-color: #064663;
     color: #fff;
     border: 3px solid #064663;
+    padding: 2%;
+    border-radius: 10%;
 }
 
 .new-btn:hover {
@@ -183,7 +165,11 @@ button {
     transition: 250ms;
     transform: scale(110%);
 }
-
+.dis-pic:hover {
+    filter: grayscale(0);
+    transition: 250ms;
+    transform: scale(110%);
+}
 .showroom {
     width: 100%;
     height: 50vh;
@@ -273,4 +259,17 @@ button {
 #map {
     height:100vh;
     width: 100%;
+}
+.dis-pic {
+    width: 80%;
+}
+.landing-section{
+    width: 90%;
+    margin: 0 auto 15%;
+    padding: 1%;
+}
+.footer{
+    color: white;
+    background-color:#072227;
+    padding: 4%;
 }
