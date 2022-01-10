@@ -12,5 +12,11 @@
     </div>
 </div>
 
+{% for item in profiles %}
 
+<a class="nav-link" href="{% url 'profile' pk=user.id%}"><img src="{{ item.profile_pic.url }}" alt="" class="profile-img"> </a>
+<p>{{item.user}}</p>
+
+
+{% endfor %}
 {% endblock %}
