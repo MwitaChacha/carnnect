@@ -1,0 +1,69 @@
+{%extends 'base.html'%}
+{% load bootstrap4 %}
+
+
+{% block content %}
+
+<div class="conatiner-fluid mt-4 bazaar-intro">
+    <img class="showroom"
+        src=https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?cs=srgb&dl=pexels-alex-green-5699456.jpg&fm=jpg"
+        alt="">
+        <div>
+            <h1 class="text-center p-3">WANT TO KNOW WHAT THE CAR COMMUNITY IN KENYA HAS TO SAY ABOUT YOUR CAR ISSUES?</h1>
+        </div>
+        <div class="text-center  container">
+            <i class="fas fa-3x mt-5 fa-chevron-down"></i>
+        </div>
+        
+</div>
+
+<div id="target" class="container">
+
+
+    {% for post in posts %}
+    <div class="card mb-5 bazaar-card">
+        <ul class="list-group list-group-flush">
+            <div class="d-flex justify-content-between">
+                <p class="p-3 text-dark">Posted by: <a href="{% url 'profile' pk=post.user.id%}">{{post.user}}</a></p>
+                <p class="p-3">Posted {{post.posted_at|timesince}} ago</p>
+            </div>
+
+        </ul>
+
+        <img class="card-img-top" src="{{post.issue_picture.url}}" alt="Card image cap">
+        <div class="card-body">
+            <div class="d-flex justify-content-around p-2">
+                <p class="card-title text-dark"> {{post.make}} {{post.model}}</p>
+                <p class="card-text text-dark">Year: {{post.year}}</p>
+            </div>
+            <p style="color: #A3423C" class="card-text text-dark">ISSUE: {{post.issue}}</p>
+        </div>
+        <h6 class="text-center">RESPONSES</h6>
+        <ul class="list-group list-group-flush">
+            {% for respo in respos %}
+            {% if respo.post_id == post.id %}
+            <li class="list-group-item"><a class="mb-2" href="{% url 'profile' pk=post.user.id%}"><i
+                        class="fas fa-user mx-1"></i>{{respo.user}}</a> <br> <span>{{respo.responses}}</span> <br><span
+                    class="text-muted"><i class="far mx-1 fa-clock"></i>{{respo.posted_at|timesince}} ago</span></li>
+            <li class="list-group-item"><i class="fas me-2 fa-map-marker-alt"></i>{{respo.location}} <span><i
+                        class="far ms-3 me-1 fa-calendar-alt"></i> {{respo.schedule_time}}</span></li>
+            {% else %}
+
+            {% endif %}
+            {% endfor %}
+
+            <form action="{% url 'response' post_id=post.id%}" class="p-4" method="post" enctype="multipart/form-data">
+
+                {% csrf_token%}
+                {% bootstrap_form form %}
+                <div class="form-group text-center">
+                    <input type="submit" class="btn btn-primary login-btn m-2" value="Respond to Issue">
+                </div>
+                <input type="hidden" name="next" value="{{next}}">
+            </form>
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
