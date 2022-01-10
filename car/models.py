@@ -114,7 +114,7 @@ class Sale(models.Model):
     model = models.CharField(max_length=50)
     year = models.IntegerField(choices=YEAR_CHOICES)
     description = models.CharField(max_length=250)
-    cc = models.CharField(max_length=100)
+    engine_size = models.CharField(max_length=100)
     price = models.IntegerField(null=True)
     posted_at = models.DateTimeField(auto_now_add=True, null=True)
 
