@@ -1,22 +1,138 @@
 {%extends 'base.html'%}
 {% load bootstrap4 %}
 {% block content %}
-<div class="container">
+
+<div class="container-flud landing">
+    <div id="bg" class="container mt-4 text-center">
+        <h1 class="heading">CARNNECT</h1>
+        <p class="">A Helping Hand in the Car Community</p>
+    </div>
+    <div class="container p-2">
+        <div class="row">
+            <div class="text-center">
+                <img class="logo mx-2"
+                    src="https://purepng.com/public/uploads/large/purepng.com-subaru-logosubaruautomobilessubaru-carssubaru-logo-1701527676687agm3c.png"
+                    alt="">
+                <img class="logo mt-2 mx-2"
+                    src="https://purepng.com/public/uploads/large/purepng.com-toyota-car-logologocar-brand-logoscarstoyota-car-logo-1701527428948tj6m0.png"
+                    alt="">
+
+                <img class="logo mx-2"
+                    src="https://purepng.com/public/uploads/large/purepng.com-nissan-logonissannissan-motorautomobile-manufactureryokohamanissan-logo-1701527528566k63x8.png"
+                    alt="">
+
+                <img class="logo mx-2"
+                    src="https://purepng.com/public/uploads/large/purepng.com-bmw-car-logologocar-brand-logoscarsbmw-car-logo-1701527428054l1xd2.png"
+                    alt="">
+                <img class="logo mx-2"
+                    src="https://purepng.com/public/uploads/large/purepng.com-mitsubishi-logomitsubishimitsubishi-groupmitsubishi-automobilesmitsubishi-logo-1701527515602pzdab.png"
+                    alt="">
+
+                <img class="logo mx-2"
+                    src="https://purepng.com/public/uploads/large/purepng.com-volkswagen-car-logologocar-brand-logoscarsvolkswagen-car-logo-17015274290007mtte.png"
+                    alt="">
+                <img class="logo mx-2"
+                    src="https://purepng.com/public/uploads/large/purepng.com-mazda-car-logologocar-brand-logoscarsmazda-car-logo-1701527428428lf8zo.png"
+                    alt="">
+                <img class="logo mx-2"
+                    src="https://purepng.com/public/uploads/large/purepng.com-mercedes-benz-car-logologocar-brand-logoscarsmercedes-benz-car-logo-1701527428463n3kha.png"
+                    alt="">
+                <img class="logo mx-2"
+                    src="https://purepng.com/public/uploads/large/purepng.com-land-rover-logoland-roverfour-wheel-drive-vehiclesjaguar-land-roverland-rover-vehiclesland-rover-logo-1701527509415loadj.png"
+                    alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="container text-center p-5">
+                    <a href="{% url 'issue' %}"><button class="btn new-btn btn-primary">Post Mechanical
+                            Issue</button></a>
+                    <p class="p-3">Is your car having mechanical issues? <br> Post it here for help and communication.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="container p-5 text-center">
+                    <a href="{% url 'advice' %}"><button class="btn new-btn btn-primary">Give Advice</button></a>
+                    <p class="p-3">Do you feel you have advice to give <br>to the car community in Kenya? <br>See other
+                        people's experiences and advice <a href="{% url 'experience' %}">here.</a></p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="container p-5 text-center">
+                    <a href="{% url 'sale' %}"><button class="btn new-btn btn-primary">Sell Your Car</button></a>
+                    <p class="p-3">Do you wish to sell your car? <br>Carnnect makes it possible to do so. <br>Visit
+                        Carnnect Bazaar <a href="{% url 'bazaar' %}">here.</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="text-center  container">
+        <a href="#target"><i class="fas fa-3x mt-3 fa-chevron-down"></i></a>
+    </div>
+</div>
+<div id="target" class="container">
+
+
+    {% for post in posts %}
+    <div class="card mb-5 bazaar-card">
+        <ul class="list-group list-group-flush">
+            <div class="d-flex justify-content-between">
+                <p class="p-3 text-dark">Posted by: <a href="{% url 'profile' pk=post.user.id%}">{{post.user}}</a></p>
+                <p class="p-3">Posted {{post.posted_at|timesince}} ago</p>
+            </div>
+
+        </ul>
+
+        <img class="card-img-top" src="{{post.issue_picture.url}}" alt="Card image cap">
+        <div class="card-body">
+            <div class="d-flex justify-content-around p-2">
+                <p class="card-title text-dark"> {{post.make}} {{post.model}}</p>
+                <p class="card-text text-dark">Year: {{post.year}}</p>
+            </div>
+            <p style="color: #A3423C" class="card-text text-dark">ISSUE: {{post.issue}}</p>
+        </div>
+        <h6 class="text-center">RESPONSES</h6>
+        <ul class="list-group list-group-flush">
+            {% for respo in respos %}
+            {% if respo.post_id == post.id %}
+            <li class="list-group-item"><a class="mb-2" href="{% url 'profile' pk=post.user.id%}"><i
+                        class="fas fa-user mx-1"></i>{{respo.user}}</a> <br> <span>{{respo.responses}}</span> <br><span
+                    class="text-muted"><i class="far mx-1 fa-clock"></i>{{respo.posted_at|timesince}} ago</span></li>
+            <li class="list-group-item"><i class="fas me-2 fa-map-marker-alt"></i>{{respo.location}} <span><i
+                        class="far ms-3 me-1 fa-calendar-alt"></i> {{respo.schedule_time}}</span></li>
+            {% else %}
+
+            {% endif %}
+            {% endfor %}
+
+            <form action="{% url 'response' post_id=post.id%}" class="p-4" method="post" enctype="multipart/form-data">
+
+                {% csrf_token%}
+                {% bootstrap_form form %}
+                <div class="form-group text-center">
+                    <input type="submit" class="btn btn-primary login-btn m-2" value="Respond to Issue">
+                </div>
+                <input type="hidden" name="next" value="{{next}}">
+            </form>
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
-            <a class="nav-link" href="{% url 'profile' pk=user.id%}"><img src="" alt=""></a>
+
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
 
         </div>
     </div>
 </div>
-
-{% for item in profiles %}
-
-<a class="nav-link" href="{% url 'profile' pk=user.id%}"><img src="{{ item.profile_pic.url }}" alt="" class="profile-img"> </a>
-<p>{{item.user}}</p>
-
-
-{% endfor %}
 {% endblock %}

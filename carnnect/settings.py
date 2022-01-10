@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+
+
 from pathlib import Path
 import cloudinary
 import cloudinary.uploader
@@ -17,12 +19,13 @@ import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+os.environ["PATH"] += os.pathsep + os.path.dirname(os.path.abspath(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-cgvqpuf38)&c-#kf=3ox^q%@ddvj4sio2kunl=e)q&7%j@ij8w'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,7 +36,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Application definition
 LOGIN_REDIRECT_URL='/'
 
+
 INSTALLED_APPS = [
+
     'crispy_forms',
     'bootstrap4',
     'cloudinary',
@@ -84,9 +89,9 @@ WSGI_APPLICATION = 'carnnect.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carnnect',
-        'USER': 'moringa',
-    'PASSWORD':'12345',
+        'NAME': 'carnec',
+        'USER': 'postgres',
+    'PASSWORD':'6775',
     }
 
 }
@@ -97,6 +102,7 @@ cloudinary.config(
   api_secret = 'wpPzGYYSWBJ_4NCwwSEC0YUMSO8'
 )
 
+# GOOGLE_API_KEY = 
 
 
 
@@ -145,3 +151,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
