@@ -67,6 +67,15 @@ class Profile(models.Model):
     category = models.CharField(
         max_length=60, choices=CATEGORY_CHOICES, default="Car-Owner")
 
+    def create_profile(self):
+        self.save()
+
+    def update_profile(self):
+        self.update()
+
+    def delete_profile(self):
+        self.delete()
+
     def __str__(self):
         return self.user
 
@@ -105,6 +114,7 @@ class Sale(models.Model):
     model = models.CharField(max_length=50)
     year = models.IntegerField(choices=YEAR_CHOICES)
     description = models.CharField(max_length=250)
+    cc = models.CharField(max_length=100)
     price = models.IntegerField(null=True)
     posted_at = models.DateTimeField(auto_now_add=True, null=True)
 
