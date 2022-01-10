@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Application definition
-LOGIN_REDIRECT_URL='/'
+LOGIN_REDIRECT_URL = '/'
 
 
 INSTALLED_APPS = [
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'bootstrap4',
     'cloudinary',
-    'tinymce',    
+    'tinymce',
     'car.apps.CarConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,22 +88,20 @@ WSGI_APPLICATION = 'carnnect.wsgi.application'
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carnec',
-        'USER': 'postgres',
-    'PASSWORD':'6775',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'car',
+        'USER': 'moringa',
+        'PASSWORD': 'Access',
     }
-
 }
 
-cloudinary.config( 
-  cloud_name = 'the-collector', 
-  api_key =  '385692492331583', 
-  api_secret = 'wpPzGYYSWBJ_4NCwwSEC0YUMSO8'
+cloudinary.config(
+    cloud_name='the-collector',
+    api_key='385692492331583',
+    api_secret='wpPzGYYSWBJ_4NCwwSEC0YUMSO8'
 )
 
-# GOOGLE_API_KEY = 
-
+# GOOGLE_API_KEY =
 
 
 # Password validation
@@ -151,4 +149,3 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
