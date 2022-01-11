@@ -219,6 +219,7 @@ button {
     font-family: 'Raleway';
     font-size: smaller;
     padding: 5%;
+    font-weight: 600;
 }
 
 .calendar tr,
