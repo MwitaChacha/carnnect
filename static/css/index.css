@@ -274,3 +274,43 @@ button {
     height:100vh;
     width: 100%;
 }
+
+.wrapper{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+  
+.map{
+    position: relative;
+}
+    
+    
+.search-location{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+  
+ul#search-result{
+    position: absolute;
+    top: 27px;
+    z-index: 1001;
+    width: 100%;
+    background: #FFF;
+    list-style: none;
+    padding: 0;
+}
+ 
+li {
+    padding: 5px 0;
+}
+    
+#render-map{
+    width: 600px;
+    height: 350px;
+    background: #f4f4f4;
+}
+ 
