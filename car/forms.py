@@ -19,7 +19,7 @@ class AdviceForm(forms.ModelForm):
 class SaleForm(forms.ModelForm):
     class Meta:
         model=Sale        
-        fields=['picture','make','model','year','description','price'] 
+        fields=['picture','picture2','picture3','make','model','year','description','price','engine_size'] 
         
 class ResponseForm(forms.ModelForm):
     class Meta:
