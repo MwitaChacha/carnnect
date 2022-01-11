@@ -9,13 +9,13 @@
           {% if user.is_authenticated %}
           <ul class="navbar-nav m-auto  px-1">
               <li class="nav-item mx-5 active">
-                  <a class="nav-link text-muted" href="{% url 'index'%}">HOME <span
+                  <a class="nav-link text-dark" href="{% url 'index'%}">HOME <span
                           class="sr-only">(current)</span></a>
               </li>
              
        
           <li class="nav-item mx-5 dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link text-dark  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               SCHEDULE
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -26,11 +26,11 @@
            
               
               <li class="nav-item mx-5">
-                <a class="nav-link " href="{% url 'map' %}">MAP</a>
+                <a class="nav-link text-dark" href="{% url 'map' %}">MAP</a>
             </li>
   
               <li class="nav-item mx-5">
-                <a class="nav-link " href="{% url 'tips' %}">CAR TIPS</a>
+                <a class="nav-link text-dark" href="{% url 'tips' %}">CAR TIPS</a>
             </li>
      
         

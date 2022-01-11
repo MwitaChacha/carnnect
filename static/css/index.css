@@ -47,23 +47,25 @@ form,
 ::placeholder,
 
 .advice-card {
-    font-family: 'Source Sans Pro';
+    font-family: 'Inter';
     font-size: smaller;
     font-weight: 600;
     color: #072227;
 }
 .nav-item {
-    color: #541212;
+    color: #072227;
     font-family: 'Source Sans Pro';
     font-size: smaller;
     font-weight: 600;
 }
-a,.fas {
+a{
     text-decoration: none;
     color: #FC9918;
     font-size: smaller;
 }
-
+.fas{
+    color: #064663;
+}
 h1,
 h2,
 h3,
@@ -193,6 +195,10 @@ button {
 .navbar {
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px 3px 0 rgba(0, 0, 0, 0.19);
     padding: 1%;
+    color: #072227;
+    font-family: 'Source Sans Pro';
+  
+    font-weight: 600;
 }
 
 .btn {
@@ -203,6 +209,7 @@ button {
 
 .card {
     color: black;
+    font-size: smaller;
 }
 
 .calendar {
@@ -273,3 +280,12 @@ button {
     background-color:#072227;
     padding: 4%;
 }
+.carnnect{
+    background-color:#4FBDBA;
+    color: white;
+    
+}
+/* .landing-sale{
+  background-color: #AEFEFF;  
+
+} */
