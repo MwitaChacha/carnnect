@@ -250,3 +250,30 @@ def event(request, event_id=None):
 
 def map(request):
     return render(request, 'map.html')
+
+@login_required(login_url='/accounts/login/')
+def mechanical_issue(request):
+    posts = Post.objects.all().order_by('-posted_at')
+    advice = Advice.objects.all().order_by('-posted_at')
+    respos = Response.objects.all().filter().order_by('-posted_at')
+    current_user = request.user
+    form = ResponseForm()
+    try:
+        if not request.user.is_authenticated:
+            return redirect('/accounts/login/')
+        current_user = request.user
+        profile =Profile.objects.get(user=current_user)
+        
+    except ObjectDoesNotExist:
+        return redirect('update_profile')
+    profiles = Profile.objects.filter(user_id = current_user.id).all()
+    if request.method == 'POST':  
+        form = ResponseForm(request.POST, request.FILES)
+        if form.is_valid():
+            com = form.save(commit=False)
+            com.user = request.user
+            com.save()
+            return redirect('index')    
+    else:
+        form = ResponseForm()
+    return render(request, 'mechanical.html',{'profiles':profiles,'posts':posts,'advice':advice, 'form':form,'respos':respos,'current_user':current_user})    
