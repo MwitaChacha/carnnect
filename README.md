@@ -11,9 +11,12 @@
 5.Job Nyambura
 6.Daniel Nyutu
 
-# Technologies used
+# Technologies and dependencies used:
 Python
 Javascript
 HTML
 CSS
-
+Bootstrap3
+Django framework
+Django-heroku
+Postgres db
