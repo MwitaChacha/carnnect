@@ -17,19 +17,23 @@
 
 <body>
   <a class="login-btn" href="{% url 'index' %}">Back</a>
-    <div class="wrapper" id="map">
-      <div class="map">
-        <input (class="search-location" type="text" placeholder="search location here..." oninput="onTyping(this)" )>
-        <ul id="search-result">
-          <!-- <li><a href="#">result 1</a></li> -->
-        </ul>
-        <div id="render-map">
+  <div class="wrapper" id="map">
+    <div class="map">
+      <input (class="search-location" type="text" placeholder="search location here..." oninput="onTyping(this)" )>
+      <ul id="search-result">
+        <!-- <li><a href="#">result 1</a></li> -->
+      </ul>
+      <div id="render-map">
 
-        </div>
       </div>
     </div>
- 
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  </div>
+{% for location in locations %}
+<div class="container">
+  <p>{{location.shop}}</p>
+</div>
+{% endfor %}
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
   <script src="{% static 'js/scripts.js' %}"></script>

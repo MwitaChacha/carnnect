@@ -127,8 +127,8 @@ class Response(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
     advice = models.ForeignKey(Advice, on_delete=models.CASCADE, null=True)
-
     responses = HTMLField()
+    shop = models.CharField(max_length=60,null=True)
     location = models.CharField(max_length=60, null=True)
     schedule_time = models.DateTimeField(null=True)
     posted_at = models.DateTimeField(auto_now_add=True, null=True)

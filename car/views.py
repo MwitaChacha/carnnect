@@ -249,7 +249,11 @@ def event(request, event_id=None):
 
 
 def map(request):
-    return render(request, 'map.html')
+    user = request.user
+    
+    locations = Response.objects.filter(user = user).all().order_by('-posted_at')
+    
+    return render(request, 'map.html',{'locations':locations})
 
 @login_required(login_url='/accounts/login/')
 def mechanical_issue(request):
