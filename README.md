@@ -11,4 +11,9 @@
 5.Job Nyambura
 6.Daniel Nyutu
 
+# Technologies used
+Python
+Javascript
+HTML
+CSS
 
