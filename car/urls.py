@@ -19,5 +19,8 @@ urlpatterns=[
    path('events/<int:year>/<str:month>', views.events,name='events'),
    path('calendar/<pk>',views.CalendarView.as_view(), name='calendar'),
    path('event/new',views.event,name='event_new'),
-   path('map/',views.map,name='map')
+   path('event/edit/<event_id>', views.event, name='event_edit'),
+   path('map/',views.map,name='map'),
+   path('mechanical/issue/', views.mechanical_issue, name='mechanical_issue'),
+   path('contact/', views.contact, name='contact'),
 ]

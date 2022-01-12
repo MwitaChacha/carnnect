@@ -1,11 +1,7 @@
 {%extends 'base.html'%}
 {% load bootstrap4 %}
 {% block content %}
-<div class="container p-3 ">
-    {% for profile in profiles%}
-    <p class=''>HELLO {{profile.user}} <br>Here is your Carnnect Schedule, as of {{time}} </p>
-    {% endfor %}
-</div>
+
 <center>
 <div class="mx-auto calendar container">
     {{cal|safe}}

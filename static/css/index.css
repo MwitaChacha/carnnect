@@ -3,32 +3,6 @@ html {
 
 }
 
-#bg {
-
-
-
-
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-    -webkit-animation: myfirst 5s;
-    /* Chrome, Safari, Opera */
-    animation: myfirst 5s;
-}
-
-/* Chrome, Safari, Opera */
-@keyframes myfirst {
-    from {
-        opacity: 0.0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
 .prof-body {
     margin: 10% 0 0 0;
     width: 90%;
@@ -71,33 +45,37 @@ html {
 p,
 form,
 ::placeholder,
-.fas,
+
 .advice-card {
-    font-family: 'Source Sans Pro';
+    font-family: 'Inter';
     font-size: smaller;
     font-weight: 600;
     color: #072227;
 }
 .nav-item {
-    color: #541212;
+    color: #072227;
     font-family: 'Source Sans Pro';
     font-size: smaller;
     font-weight: 600;
 }
-a {
+a{
     text-decoration: none;
     color: #FC9918;
+    font-size: smaller;
 }
-
+.fas{
+    color: #064663;
+}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: 'Raleway';
+    font-family: 'Montserrat';
     letter-spacing: 3px;
-    color: black;
+    color: #064663;
+    font-weight: bold;
 }
 
 .login-btn {
@@ -110,12 +88,16 @@ h6 {
     font-family: 'Source Sans Pro';
     font-size: smaller;
     font-weight: 600;
+    padding: 2%;
+    border-radius: 10%;
 }
 
 button {
     font-family: 'Source Sans Pro';
     font-size: smaller;
     font-weight: 600;
+    padding: 2%;
+    border-radius: 10%;
 }
 
 .new-btn {
@@ -123,6 +105,8 @@ button {
     background-color: #064663;
     color: #fff;
     border: 3px solid #064663;
+    padding: 2%;
+    border-radius: 10%;
 }
 
 .new-btn:hover {
@@ -183,7 +167,11 @@ button {
     transition: 250ms;
     transform: scale(110%);
 }
-
+.dis-pic:hover {
+    filter: grayscale(0);
+    transition: 250ms;
+    transform: scale(110%);
+}
 .showroom {
     width: 100%;
     height: 50vh;
@@ -207,6 +195,10 @@ button {
 .navbar {
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 0px 3px 0 rgba(0, 0, 0, 0.19);
     padding: 1%;
+    color: #072227;
+    font-family: 'Source Sans Pro';
+  
+    font-weight: 600;
 }
 
 .btn {
@@ -217,6 +209,7 @@ button {
 
 .card {
     color: black;
+    font-size: smaller;
 }
 
 .calendar {
@@ -226,6 +219,7 @@ button {
     font-family: 'Raleway';
     font-size: smaller;
     padding: 5%;
+    font-weight: 600;
 }
 
 .calendar tr,
@@ -271,6 +265,68 @@ button {
 }
 
 #map {
-    height:100vh;
+    height:90vh;
     width: 100%;
 }
+.dis-pic {
+    width: 80%;
+}
+.landing-section{
+    width: 90%;
+    margin: 0 auto 15%;
+    padding: 1%;
+}
+.footer{
+    color: white;
+    background-color:#072227;
+    padding: 4%;
+}
+.carnnect{
+    background-color:#4FBDBA;
+    color: white;
+    
+}
+/* .landing-sale{
+  background-color: #AEFEFF;  
+
+} */
+
+.wrapper{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+  
+.map{
+    position: relative;
+}
+    
+    
+.search-location{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+  
+ul#search-result{
+    position: absolute;
+    top: 27px;
+    z-index: 1001;
+    width: 100%;
+    background: #FFF;
+    list-style: none;
+    padding: 0;
+}
+ 
+li {
+    padding: 5px 0;
+}
+    
+#render-map{
+    width: 600px;
+    height: 350px;
+    background: #f4f4f4;
+}
+ 
