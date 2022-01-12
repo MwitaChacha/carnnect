@@ -9,28 +9,40 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
+
 
 from pathlib import Path
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+os.environ["PATH"] += os.pathsep + os.path.dirname(os.path.abspath(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-cgvqpuf38)&c-#kf=3ox^q%@ddvj4sio2kunl=e)q&7%j@ij8w'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Application definition
+LOGIN_REDIRECT_URL = '/'
+
 
 INSTALLED_APPS = [
+
+    'crispy_forms',
+    'bootstrap4',
+    'cloudinary',
+    'tinymce',
     'car.apps.CarConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -76,10 +88,20 @@ WSGI_APPLICATION = 'carnnect.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'carnec',
+        'USER': 'postgres',
+    'PASSWORD':'6775',
     }
 }
+
+cloudinary.config(
+    cloud_name='the-collector',
+    api_key='385692492331583',
+    api_secret='wpPzGYYSWBJ_4NCwwSEC0YUMSO8'
+)
+
+# GOOGLE_API_KEY =
 
 
 # Password validation
@@ -106,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -119,6 +141,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
