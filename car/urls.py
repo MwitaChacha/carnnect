@@ -21,5 +21,6 @@ urlpatterns=[
    path('event/new',views.event,name='event_new'),
    path('event/edit/<event_id>', views.event, name='event_edit'),
    path('map/',views.map,name='map'),
-   path('mechanical/issue/', views.mechanical_issue, name='mechanical_issue')
+   path('mechanical/issue/', views.mechanical_issue, name='mechanical_issue'),
+   path('contact/', views.contact, name='contact'),
 ]
