@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +17,25 @@
 </head>
 
 <body>
-  <a class="login-btn" href="{% url 'index' %}">Back</a>
-  <div class="wrapper" id="map">
+  
+  <div class="container text-center">
+    <h4 class="p-2">Welcome to Carnnect Map</h4>
+  </div>
+  
+  <div class="container mt-5">
+    {% for location in locations %}
+    <p>The following are your scheduled shops/garages and their location.</p>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+   
+        <p>{{location.shop}} at {{location.location}}</p>
+        
+      </label>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="wrapper mb-5" id="map">
     <div class="map">
       <input (class="search-location" type="text" placeholder="search location here..." oninput="onTyping(this)" )>
       <ul id="search-result">
@@ -28,12 +46,8 @@
       </div>
     </div>
   </div>
-{% for location in locations %}
-<div class="container">
-  <p>{{location.shop}}</p>
-</div>
-{% endfor %}
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
   <script src="{% static 'js/scripts.js' %}"></script>
