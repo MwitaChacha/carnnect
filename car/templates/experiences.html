@@ -22,7 +22,7 @@
             {% for advice in advices %}
             <div class="card advice-card p-3 m-3">
                 <div class="card-header">
-                  Posted by   {{advice.user}}
+                  Posted by  <a href="{% url 'profile' pk=user.id%}">{{advice.user}}</a>
                 </div>
                 <div class="card-body">
                   <blockquote class="blockquote mb-0">

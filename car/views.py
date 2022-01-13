@@ -99,7 +99,7 @@ def issue(request):
             issu = form.save(commit=False)
             issu.user = request.user
             issu.save()
-            return redirect ('index')        
+            return redirect ('mechanical_issue')        
         else:
             form = PostForm()    
     return render(request,'issue.html',{'form':form, 'profiles':profiles})
@@ -116,7 +116,7 @@ def advice(request):
             adv = form.save(commit=False)
             adv.user = request.user
             adv.save()
-            return redirect ('index')
+            return redirect ('experience')
         else:
             form = AdviceForm()    
     return render(request,'advice.html',{'form':form, 'profiles':profiles})
@@ -168,7 +168,7 @@ def response(request,post_id):
       respo.user = request.user
       respo.post = post
       respo.save() 
-  return redirect('index')
+  return redirect('mechanical_issue')
 
 
 
