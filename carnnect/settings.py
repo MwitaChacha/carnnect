@@ -90,8 +90,8 @@ DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'carnec',
-        'USER': 'postgres',
-    'PASSWORD':'6775',
+        'USER': 'moringa',
+    'PASSWORD':'12345',
     }
 }
 
