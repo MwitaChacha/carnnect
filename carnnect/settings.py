@@ -91,10 +91,10 @@ WSGI_APPLICATION = 'carnnect.wsgi.application'
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carnec',
-        'USER': 'postgres',
-    'PASSWORD':'6775',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'jay',
+        'USER': 'moringa',
+    'PASSWORD':'Access',
     }
 }
 
